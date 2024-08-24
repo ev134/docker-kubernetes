@@ -1,0 +1,46 @@
+# DOCKER
+// build the docker image
+docker build -t my-own-app .
+
+// check if image is built
+docker images
+
+// run the application
+docker run -p 3000:80 my-node-app
+
+// check to see if the application is running
+docker ps
+go to http://localhost:3000
+
+// stop application from running
+docker stop "container id"
+
+// run tests
+docker run my-own-app yarn test
+
+
+# KUBERNETES
+// apply the namespace
+kubectl apply -f namespace.yaml
+
+// deploy application
+kubectl apply -f deployment.yaml
+
+// find the external IP
+kubectl get svc -n my-namespace
+
+// read the logs of the application
+kubectl logs -n my-namespace deployment/my-own-app
+
+// scale to 3
+kubectl scale deployment my-own-app --replicas=3 -n my-namespace
+
+// verify the scaling
+kubectl get pods -n my-namespace
+Refresh the /debug endpoint in your browser, and you should be directed to different pods on each hard refresh.
+
+// run the job
+kubectl apply -f test-job.yaml
+
+// read the logs from the job
+kubectl logs -n my-namespace job/my-own-app-test
