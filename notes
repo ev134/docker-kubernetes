@@ -26,9 +26,6 @@ kubectl apply -f namespace.yaml
 // deploy application
 kubectl apply -f deployment.yaml
 
-// find the external IP
-kubectl get svc -n my-namespace
-
 // read the logs of the application
 kubectl logs -n my-namespace deployment/my-own-app
 
