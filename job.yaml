@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: my-own-app-test
+  namespace: my-namespace
+spec:
+  template:
+    spec:
+      containers:
+      - name: my-own-app-test
+        image: evanhoof134/my-own-app:latest
+        command: ["yarn", "test"]
+      restartPolicy: OnFailure
+  backoffLimit: 3

@@ -1,0 +1,42 @@
+# DOCKER
+// build the docker image
+docker build -t my-own-app .
+
+// check if image is built
+docker images
+
+// run the application
+docker run -d -p 3000:3000 my-own-app
+
+// check to see if the application is running
+docker ps
+go to http://localhost:3000
+
+// stop application from running
+docker stop "container id"
+
+// run tests
+docker run my-own-app yarn test
+
+
+# KUBERNETES
+// apply the namespace
+kubectl apply -f namespace.yaml
+
+// deploy application
+kubectl apply -f deployment.yaml
+
+// read the logs of the application
+kubectl logs -n my-namespace deployment/my-own-app
+
+// scale to 3
+kubectl scale deployment my-own-app --replicas=3 -n my-namespace
+
+// verify the scaling
+kubectl get pods -n my-namespace
+
+// run the job
+kubectl apply -f job.yaml
+
+// read the logs from the job
+kubectl logs -n my-namespace job/my-own-app-test
