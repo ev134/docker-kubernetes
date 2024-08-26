@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
       - name: my-own-app-test
-        image: my-own-app:latest
+        image: evanhoof134/my-own-app:latest
         command: ["yarn", "test"]
       restartPolicy: OnFailure
   backoffLimit: 3

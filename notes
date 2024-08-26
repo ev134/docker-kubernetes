@@ -6,7 +6,7 @@ docker build -t my-own-app .
 docker images
 
 // run the application
-docker run -p 3000:80 my-node-app
+docker run -d -p 3000:3000 my-own-app
 
 // check to see if the application is running
 docker ps
@@ -37,10 +37,9 @@ kubectl scale deployment my-own-app --replicas=3 -n my-namespace
 
 // verify the scaling
 kubectl get pods -n my-namespace
-Refresh the /debug endpoint in your browser, and you should be directed to different pods on each hard refresh.
 
 // run the job
-kubectl apply -f test-job.yaml
+kubectl apply -f job.yaml
 
 // read the logs from the job
 kubectl logs -n my-namespace job/my-own-app-test
